@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Notification = ({state}) => {
-    const message = state.message
-    const type = state.type
+const Notification = ({notification}) => {
+    const message = notification.message
+    const type = notification.type
 
     if(message === null) {
         return null

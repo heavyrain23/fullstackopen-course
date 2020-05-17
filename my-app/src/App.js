@@ -21,6 +21,17 @@ const App = () => {
       })
   }, [])
 
+  const positiveNotification = (text) => {
+    const newMessage = {
+      message: text}   
+
+    setNotification(newMessage)
+    setTimeout(() => {
+      setNotification({...notification, message: null})
+    }, 5000)
+  }
+  
+
   const addNewPerson = (event) => {
     event.preventDefault()
     if (persons.findIndex(person => person.name === newName) > -1) {
@@ -33,18 +44,25 @@ const App = () => {
         PersonService
           .update(id, nameObj)
           .then(newPerson => {
-            const newMessage = {
-              message: "Person is updated"}   
-
-            setNotification(newMessage)
-            setTimeout(() => {
-              setNotification({...notification, message: null})
-            }, 5000)
+            
+            positiveNotification("Person was updated")
 
             const newPersons = persons.map(person => person.id !== id ? person : newPerson)
             setPersons(newPersons)
+          })      
+           
+        .catch(error => {
+          const newMessage = { 
+            message: "false",
+            type: 'error'
+          }
+          setNotification(newMessage)
+          setTimeout(() => {
+            setNotification({...notification, message: null})
+          }, 5000)
 
-          })       
+          setPersons(persons.filter(p => p.id !== id))
+        })
 
       }
     }
@@ -57,13 +75,8 @@ const App = () => {
       PersonService
         .create(nameObj)
         .then(newPerson => {
-          const newMessage = {
-            message: "Person is added"}   
-                       
-          setNotification(newMessage)
-          setTimeout(() => {
-            setNotification({...notification, message: null})
-          }, 5000)
+          
+          positiveNotification("Person was added")
 
           setPersons(persons.concat(newPerson))
           setNewName('')
@@ -99,7 +112,7 @@ const App = () => {
   return (
     <div>
       <h2>Phonebook</h2>
-      <Notification state={notification} />
+      <Notification notification ={notification} />
       <Filter value={newFilter} changeEvent={handleFilterChange} />
       <PersonsForm submitEvent={addNewPerson} nameValue={newName} nameChange={handleNameChange}
         valueNumber={newNumber} numberChange={handleNumberChange} />
