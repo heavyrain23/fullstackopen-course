@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/fullstackopen-course/static/js/main.5bf98a8a.chunk.js",
+    "main.js.map": "/fullstackopen-course/static/js/main.5bf98a8a.chunk.js.map",
+    "runtime-main.js": "/fullstackopen-course/static/js/runtime-main.fcebbc41.js",
+    "runtime-main.js.map": "/fullstackopen-course/static/js/runtime-main.fcebbc41.js.map",
+    "static/js/2.538c7294.chunk.js": "/fullstackopen-course/static/js/2.538c7294.chunk.js",
+    "static/js/2.538c7294.chunk.js.map": "/fullstackopen-course/static/js/2.538c7294.chunk.js.map",
+    "index.html": "/fullstackopen-course/index.html",
+    "precache-manifest.1944ff68ff40ce31e3f1a86568ae58a0.js": "/fullstackopen-course/precache-manifest.1944ff68ff40ce31e3f1a86568ae58a0.js",
+    "service-worker.js": "/fullstackopen-course/service-worker.js",
+    "static/js/2.538c7294.chunk.js.LICENSE.txt": "/fullstackopen-course/static/js/2.538c7294.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fcebbc41.js",
+    "static/js/2.538c7294.chunk.js",
+    "static/js/main.5bf98a8a.chunk.js"
+  ]
+}
